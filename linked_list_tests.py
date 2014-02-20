@@ -1,3 +1,5 @@
+#! /usr/bin/env python
+
 import unittest
 import linked_list
 
@@ -6,48 +8,65 @@ import linked_list
 
 class TestLinky(unittest.TestCase):
 
-    def testChunk():
-        linky = Linkedlist()
-        linky.linked_list.insert(1)
-        linky.linked_list.insert(2)
-        linky.linked_list.insert(3)
-        linky.linked_list.insert(4)
-        self.assertEqual([4, 3, 2, 1], linky.linked_list.print_me())
-        print(linky.size())
-        linky.pop()
-        print(linky.print_me())
-        print(linky.size())
-        print(linky.search(3))
-        print(linky.search(4))
-        linky.remove(2)
-        print(linky.print_me())
+    def setUp(self):
+        self.linky = linked_list.Linkedlist()
+        self.linky.insert(1)
+        self.linky.insert(2)
+        self.linky.insert(3)
+        self.linky.insert(4)
 
-    def testPop():
-        pass
+    def testInsertToEmpty(self):
+        self.linky = linked_list.Linkedlist()
+        self.linky.insert(1)
+        self.assertEqual(1, self.linky.head.val)
 
-    def testSize():
-        pass
+    def testInsertToNonEmpty(self):
+        self.setUp()
+        self.linky.insert(5)
+        self.assertEqual(5, self.linky.head.val)
 
-    def testSearch():
-        pass
+    def testPopEmpty(self):
+        self.linky = linked_list.Linkedlist()
+        self.assertEqual(None, self.linky.pop())
 
-    def testRemove():
-        pass
+    def testPopNonEmpty(self):
+        self.setUp()
+        self.assertEqual(4, self.linky.pop())
 
-    def testPrint_me():
-        pass
+    def testSizeGthanOne(self):
+        self.setUp()
+        self.assertEqual(4, self.linky.size())
 
-    # def testMessageShort(self):
-    #     test_s = "a3th8go"
-    #     self.assertEqual(test_s, myclient.start_client(test_s))
+    def testSizeAtOne(self):
+        self.linky = linked_list.Linkedlist()
+        self.linky.insert(1)
+        self.assertEqual(1, self.linky.size())
 
-    # def testMessageLong(self):
-    #     test_L = "asdfghjklasdfghjklsdfghjklsdfg32lsdfghjkldfghjk"
-    #     self.assertEqual(test_L, myclient.start_client(test_L))
+    def testSizeAtZero(self):
+        self.linky = linked_list.Linkedlist()
+        self.assertEqual(0, self.linky.size())
 
-    # def testMessageExact(self):
-    #     test_e = "12345678909876543212345678909876"
-    #     self.assertEqual(test_e, myclient.start_client(test_e))
+    def testSearchExists(self):
+        self.setUp()
+        self.assertEqual(3, self.linky.search(3))
+
+    def testSearchNotExists(self):
+        self.setUp()
+        self.assertEqual(None, self.linky.search(5))
+
+    def testRemoveHead(self):
+        self.setUp()
+        self.linky.remove(4)
+        self.assertEqual('[3, 2, 1]', self.linky.print_me())
+
+    def testRemoveMiddle(self):
+        self.setUp()
+        self.linky.remove(2)
+        self.assertEqual('[4, 3, 1]', self.linky.print_me())
+
+    def testPrint_me(self):
+        self.linky = linked_list.Linkedlist()
+        self.assertEqual('[]', self.linky.print_me())
 
 if __name__ == "__main__":
     unittest.main()

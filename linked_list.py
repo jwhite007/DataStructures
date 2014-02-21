@@ -78,4 +78,3 @@ class Linkedlist(object):
             linked_list.append(i.val)
             i = i.next
         return str(linked_list)
-

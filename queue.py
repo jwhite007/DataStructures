@@ -10,7 +10,7 @@ class Node(object):
         self.prev = None
 
 
-class queue(object):
+class Queue(object):
 
     def __init__(self):
 

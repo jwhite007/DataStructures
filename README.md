@@ -8,6 +8,10 @@ linked_list.py
 
 stack.py
   Implements an infinite stack with push and pop methods.  Pop returns an error when attempted on empty list.
+  
+queue.py
+  Implements an infinite queue with enqueue, dequeue, and size methods.  Dequeue returns an error message when attempted
+  on an empty list.
 
 Data-structures tested with unit test on Travis:
     [![Build Status](https://travis-ci.org/jwhite007/DataStructures.png?branch=master)](https://travis-ci.org/jwhite007/DataStructures)

@@ -9,9 +9,6 @@ class Node(object):
         self.next = None
         self.prev = None
 
-    def __str__():
-        pass
-
 
 class queue(object):
 

@@ -18,9 +18,6 @@ class Stack(object):
 
         self.top = None
 
-    def __str__():
-        pass
-
     def push(self, val):
 
         new_node = Node(val)

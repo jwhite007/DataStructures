@@ -4,7 +4,7 @@ import unittest
 import queue
 
 
-class testQueue(unittest.TestCase):
+class TestQueue(unittest.TestCase):
 
     def test_enqueue_empty(self):
         my_queue = queue.Queue()

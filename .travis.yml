@@ -4,4 +4,4 @@ python:
 # command to install dependencies
 install: "pip install -r requirements.txt"
 # command to run tests
-script: ./linked_list_tests.py; ./stack_tests.py; ./queue_tests.py
+script: ./linked_list_tests.py; ./stack_tests.py; ./queue_tests.py; hash_table_tests.py

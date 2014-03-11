@@ -71,42 +71,18 @@ class BST(object):
             count += 1
         else:
             count += self.root.right.count_nones()
+        return count
 
-    # def depth(self):
-    #     count = 0
-    #     if self.root is not None:
-    #         count += 1
-    #         if self.root.left is not None and self.root.right is not None:
-    #         if self.root.left.size() > self.root.right.size():
-    #             self.root.left.depth()
-    #         else:
-    #             self.root.right.depth()
+    def depth(self):
+
         # count = 0
-        # if self.root.left is None:
+        # if self.root is not None:
         #     count += 1
-        # else:
-        #     count += self.root.left.depth()
-        # if self.root.right is None:
-        #     count += 1
-        # else:
-        #     count += self.root.right.depth()
-        # return count
-        # if self.root.left is not None or self.root.right is not None:
-        #     count += 1
-        # if self.root.left is not None:
-        #     count += self.root.left.depth()
-        # if self.root.right is not None:
-        #     count += self.root.right.depth()
-        # return count
-
-    # def depth(self):
-    #     count = 1
-    #     if self.root.left is not None or self.root.right is not None:
-    #         if self.root.left is not None:
-    #             count += self.root.left.depth()
-    #         if self.root.right is not None:
-    #             count += self.root.right.depth()
-    #     return count
+        #     if self.root.left is not None and self.root.right is not None:
+        #     if self.root.left.size() > self.root.right.size():
+        #         self.root.left.depth()
+        #     else:
+        #         self.root.right.depth()
 
     def balance():
         pass

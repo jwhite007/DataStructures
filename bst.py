@@ -1,8 +1,5 @@
 #! /usr/bin/env python
 
-balanced = []
-worst = []
-random = []
 from math import ceil
 from math import log
 

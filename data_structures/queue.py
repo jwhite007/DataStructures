@@ -36,7 +36,7 @@ class Queue(object):
             self._size -= 1
             return dequeued
         except AttributeError:
-            print('Uh oh!!  Queue is empty')
+            return 'Uh oh!!  Queue is empty'
 
     def get_size(self):
         return self._size

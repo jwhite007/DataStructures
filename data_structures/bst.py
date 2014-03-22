@@ -64,7 +64,7 @@ class Tree(object):
             return str(diff) + ' (the tree is balanced)'
 
     def _grab_left(self):
-        if self.right is None:
+        if self.left is None:
             return self.val
         else:
             self.left._grab_left()
@@ -76,22 +76,26 @@ class Tree(object):
             self.right._grab_right()
 
     def rm_node(self, val):
+        # if self.left is not None and self.left.val is None:
+        #     self.left = None
+        # if self.right is not None and self.right.val is None:
+        #     self.right = None
+        # import pdb
+        # pdb.set_trace()
         if self.val == val:
             if self.left is not None:
-            # if self.left.size() >= self.right.size() and self.left is not None:
                 self.val = self.left._grab_right()
                 self.left.rm_node(self.val)
             elif self.right is not None:
-            # elif self.right.size() > self.left.size():
                 self.val = self.right._grab_left()
                 self.right.rm_node(self.val)
             else:
-                self.val is None
+                return None
         else:
             if self.val > val and self.left is not None:
-                return self.left.rm_node(val)
-            elif self.val < val and self.right is not None:
-                return self.right.rm_node(val)
+                self.left = self.left.rm_node(val)
+            if self.val < val and self.right is not None:
+                self.right = self.right.rm_node(val)
             return self
 
     def in_order(self):
@@ -103,6 +107,8 @@ class Tree(object):
             if self.right is not None:
                 for node in self.right.in_order():
                     yield node
+        # else:
+        #     yield self.val
 
     def pre_order(self):
         if self.val is not None:
@@ -141,15 +147,16 @@ class Tree(object):
 
 
 if __name__ == '__main__':
+
     list1 = [8, 5, 20, 3, 7, 15, 25, 30, 2, 4]
     new_Tree = Tree()
     for i in list1:
         new_Tree.insert(i)
-    print(new_Tree.val)
-    print(new_Tree.contains(8))
-    print(new_Tree.size())
-    print(new_Tree.depth())
-    print(new_Tree.balance())
+    # print(new_Tree.val)
+    # print(new_Tree.contains(8))
+    # print(new_Tree.size())
+    # print(new_Tree.depth())
+    # print(new_Tree.balance())
     iol = []
     for node in new_Tree.in_order():
         iol.append(node)
@@ -163,11 +170,17 @@ if __name__ == '__main__':
         postol.append(node)
     print postol
     print(new_Tree.breadth_first())
-    mod_Tree = new_Tree.rm_node(5)
+    new_Tree.rm_node(5)
+    # print(new_Tree.rm_node(20))
     iol = []
-    for node in mod_Tree.in_order():
+    for node in new_Tree.in_order():
         iol.append(node)
     print iol
+    # print(new_Tree._grab_right())
+    # preol = []
+    # for node in new_Tree.pre_order():
+    #     preol.append(node)
+    # print preol
 
     # print(new_Tree.contains(10))
 

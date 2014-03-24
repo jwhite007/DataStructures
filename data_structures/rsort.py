@@ -2,42 +2,42 @@
 
 
 def rsort(l, radix):
+    if not isinstance(l, list):
+        msg = "This method only works on lists.  Please input a list."
+        raise ValueError(msg)
 
-    place, breakout = 1, False
+    else:
 
-    while breakout is False:
+        place, breakout = 1, False
 
-        count = 0
-        buckets = [list() for i in range(radix)]
+        while breakout is False:
 
-        for i in l:
+            count = 0
+            buckets = [list() for i in range(radix)]
 
-            floor = i / place
+            for i in l:
 
-            if floor == 0:
+                floor = i // place
 
-                count += 1
+                if floor == 0:
 
-            buckets[floor % radix].append(i)
+                    count += 1
 
-        l = []
+                buckets[floor % radix].append(i)
 
-        for bucket in buckets:
+            l = []
 
-            l += bucket
+            for bucket in buckets:
 
-        place *= radix
+                l += bucket
 
-        if len(buckets[0]) == count:
+            place *= radix
 
-            breakout = True
+            if len(buckets[0]) == count:
 
-    return l
+                breakout = True
 
-
-
+        return l
 
 if __name__ == '__main__':
-    l = [8, 502, 401, 5, 20, 3, 400, 7, 1001, 15, 25, 30, 2, 4]
-    print(rsort(l, 10))
-
+    pass

@@ -2,14 +2,16 @@
 
 
 def msort(l):
-    if len(l) <= 1:
-        return l
-
-    left, right = l[:(len(l) / 2)], l[(len(l) / 2):]
-    left = msort(left)
-    right = msort(right)
-
-    return merge(left, right)
+    if not isinstance(l, list):
+        msg = "This method only works on lists.  Please input a list."
+        raise ValueError(msg)
+    else:
+        if len(l) <= 1:
+            return l
+        left, right = l[:(len(l) / 2)], l[(len(l) / 2):]
+        left = msort(left)
+        right = msort(right)
+        return merge(left, right)
 
 
 def merge(left, right):
@@ -39,6 +41,4 @@ def merge(left, right):
     return m
 
 if __name__ == '__main__':
-    l = [8, 5, 20, 3, 7, 15, 25, 30, 2, 4]
-    print(msort(l))
-
+    pass

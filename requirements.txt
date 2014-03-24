@@ -1,3 +1,4 @@
+-e git+https://github.com/jwhite007/DataStructures@4288ca48374d3232a6e073787e968f2bf0ce35e7#egg=data_structures-master
 fuzzywuzzy==0.2
 lettuce==0.2.19
 nose==1.3.0

@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 
 import unittest
-import stack
+from data_structures import stack
 
 
 class TestStack(unittest.TestCase):

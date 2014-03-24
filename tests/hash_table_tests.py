@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 
 import unittest
-import hash_table
+from data_structures import hash_table
 
 
 class TestHashTable(unittest.TestCase):

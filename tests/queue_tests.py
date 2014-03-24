@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 
 import unittest
-import queue
+from data_structures import queue
 
 
 class TestQueue(unittest.TestCase):

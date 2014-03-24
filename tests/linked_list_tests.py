@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 
 import unittest
-import linked_list
+from data_structures import linked_list
 
 """Tests for linked_list.py"""
 

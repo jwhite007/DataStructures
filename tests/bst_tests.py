@@ -98,6 +98,7 @@ class TestTree(unittest.TestCase):
                              [8, 5, 20, 3, 6, 15, 25, 2])
 
     def test_rm_node(self):
+        # no descendants
         l = [8, 5, 20]
         tree = buildTree(l)
         tree.rm_node(20)
@@ -105,6 +106,25 @@ class TestTree(unittest.TestCase):
         for node in tree.in_order():
             iol.append(node)
         self.assertListEqual(iol, [5, 8])
+
+        # one descendant
+        l = [8, 5, 20, 30]
+        tree = buildTree(l)
+        tree.rm_node(20)
+        iol = []
+        for node in tree.in_order():
+            iol.append(node)
+        self.assertListEqual(iol, [5, 8, 30])
+
+        # two descendants
+        l = [8, 5, 20, 30, 15]
+        tree = buildTree(l)
+        tree.rm_node(20)
+        iol = []
+        for node in tree.in_order():
+            iol.append(node)
+        self.assertListEqual(iol, [5, 8, 15, 30])
+
 
 
 def buildTree(l):

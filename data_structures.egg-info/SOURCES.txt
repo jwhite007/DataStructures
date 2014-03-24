@@ -1,8 +1,14 @@
 setup.py
 data_structures/__init__.py
+data_structures/bst.py
 data_structures/hash_table.py
+data_structures/insort.py
 data_structures/linked_list.py
+data_structures/msort.py
+data_structures/mylib.py
+data_structures/qsort.py
 data_structures/queue.py
+data_structures/rsort.py
 data_structures/stack.py
 data_structures.egg-info/PKG-INFO
 data_structures.egg-info/SOURCES.txt

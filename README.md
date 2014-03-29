@@ -5,7 +5,7 @@ A repository for modules such as linked lists, stacks, etc.... to be used in pro
 
 linked_list.py
   Implements a linked list with insert, pop, remove, size, search, and print functions.  Added a print_kth_from_nth
-  fucntion on March 28, 2014.
+  function on March 28, 2014.
 
 stack.py
   Implements an infinite stack with push and pop methods.  Pop returns an error when attempted on empty list.

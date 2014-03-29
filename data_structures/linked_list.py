@@ -75,15 +75,20 @@ class Linkedlist(object):
             i = i.next
         return str(linked_list)
 
-    def print_kth_from_last(self, k):
+    def print_kth_from_nth(self, k, n):
         i = self.head
+        o = n
+        p = self.head
+        while o > 1:
+            p = p.next
+            o -= 1
         while True:
             l = k
             c = i
             while l > 0:
                 c = c.next
                 l -= 1
-            if c.next is None:
+            if c is p:
                 return i.val
                 # break
             i = i.next

@@ -90,5 +90,4 @@ class Linkedlist(object):
                 l -= 1
             if c is p:
                 return i.val
-                # break
             i = i.next

@@ -77,14 +77,12 @@ class Linkedlist(object):
 
     def print_kth_from_nth(self, k, n):
         i = self.head
-        o = n
-        p = self.head
-        while o > 1:
+        p = i
+        while n > 1:
             p = p.next
-            o -= 1
+            n -= 1
         while True:
-            l = k
-            c = i
+            l, c = k, i
             while l > 0:
                 c = c.next
                 l -= 1

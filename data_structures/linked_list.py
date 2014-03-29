@@ -18,9 +18,6 @@ class Linkedlist(object):
 
         self.head = None
 
-    def __str__():
-        pass
-
     def insert(self, val):
 
         new_node = Node(val)
@@ -35,7 +32,6 @@ class Linkedlist(object):
             popped, self.head = self.head.val, self.head.next
             return popped
         else:
-            # return "empty linked list"
             return None
 
     def size(self):
@@ -78,3 +74,16 @@ class Linkedlist(object):
             linked_list.append(i.val)
             i = i.next
         return str(linked_list)
+
+    def print_kth_from_last(self, k):
+        i = self.head
+        while True:
+            l = k
+            c = i
+            while l > 0:
+                c = c.next
+                l -= 1
+            if c.next is None:
+                return i.val
+                # break
+            i = i.next

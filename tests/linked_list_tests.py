@@ -10,10 +10,9 @@ class TestLinky(unittest.TestCase):
 
     def setUp(self):
         self.linky = linked_list.Linkedlist()
-        self.linky.insert(1)
-        self.linky.insert(2)
-        self.linky.insert(3)
-        self.linky.insert(4)
+        l = [1, 2, 3, 4]
+        for i in l:
+            self.linky.insert(i)
 
     def testInsertToEmpty(self):
         self.linky = linked_list.Linkedlist()
@@ -21,7 +20,6 @@ class TestLinky(unittest.TestCase):
         self.assertEqual(1, self.linky.head.val)
 
     def testInsertToNonEmpty(self):
-        self.setUp()
         self.linky.insert(5)
         self.assertEqual(5, self.linky.head.val)
 
@@ -30,11 +28,9 @@ class TestLinky(unittest.TestCase):
         self.assertEqual(None, self.linky.pop())
 
     def testPopNonEmpty(self):
-        self.setUp()
         self.assertEqual(4, self.linky.pop())
 
     def testSizeGthanOne(self):
-        self.setUp()
         self.assertEqual(4, self.linky.size())
 
     def testSizeAtOne(self):
@@ -47,26 +43,28 @@ class TestLinky(unittest.TestCase):
         self.assertEqual(0, self.linky.size())
 
     def testSearchExists(self):
-        self.setUp()
         self.assertEqual(3, self.linky.search(3))
 
     def testSearchNotExists(self):
-        self.setUp()
         self.assertEqual(None, self.linky.search(5))
 
     def testRemoveHead(self):
-        self.setUp()
         self.linky.remove(4)
         self.assertEqual('[3, 2, 1]', self.linky.print_me())
 
     def testRemoveMiddle(self):
-        self.setUp()
         self.linky.remove(2)
         self.assertEqual('[4, 3, 1]', self.linky.print_me())
 
     def testPrint_me(self):
         self.linky = linked_list.Linkedlist()
         self.assertEqual('[]', self.linky.print_me())
+
+    def testPrint_0th_from_last(self):
+        self.assertEqual(1, self.linky.print_kth_from_last(0))
+
+    def testPrint_1st_from_last(self):
+        self.assertEqual(2, self.linky.print_kth_from_last(1))
 
 if __name__ == "__main__":
     unittest.main()

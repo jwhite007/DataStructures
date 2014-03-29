@@ -8,9 +8,6 @@ class Node(object):
         self.val = val
         self.next = None
 
-    def __str__():
-        pass
-
 
 class Stack(object):
 

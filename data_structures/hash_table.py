@@ -1,12 +1,11 @@
 #! /usr/bin/env python
 
-
 class HashTable(object):
     """docstring for HashTable"""
     def __init__(self, size):
-
-        self.head = None
         self.size = size
+        self.head = None
+
         for i in range(self.size):
             new_index = Index(i)
             if self.head is None:
@@ -17,7 +16,7 @@ class HashTable(object):
     def set(self, key, val):
 
         if isinstance(key, str):
-            index = self.hash(key) % self.size
+            index = self.__hash(key) % self.size
             i = self.head
             while i is not None:
                 if i.val == index:
@@ -38,10 +37,13 @@ class HashTable(object):
         else:
             return 'key must be a string!'
 
+    def __setitem__(self, key, val):
+        return self.set(key, val)
+
     def get(self, key):
 
         if isinstance(key, str):
-            index = self.hash(key) % self.size
+            index = self.__hash(key) % self.size
             i = self.head
             while i is not None:
                 if i.val == index:
@@ -60,7 +62,10 @@ class HashTable(object):
         else:
             return 'key must be a string!'
 
-    def hash(self, key):
+    def __getitem__(self, key):
+        return self.get(key)
+
+    def __hash(self, key):
         total_ord = 0
         for i in key:
             total_ord = total_ord + ord(i)
@@ -80,3 +85,10 @@ class Child(object):
     def __init__(self, val):
         self.val = val
         self.next = None
+
+if __name__ == '__main__':
+    hashed = HashTable(11)
+    hashed.set('bill', 2)
+    print hashed['bill']
+    hashed['test'] = 3
+    print hashed['test']
